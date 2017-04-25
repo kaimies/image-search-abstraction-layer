@@ -20,7 +20,7 @@ app.get('/api/imagesearch/:searchTerm', (req, res) => {
 
   db.addSearchTerm(searchTerm);
 
-  searchApi.search(searchTern, { offset })
+  searchApi.search(searchTerm, { offset })
     .then((response) => {
       const results = response.values.map(bingResponseToApiResponse);
       res.json(results);
