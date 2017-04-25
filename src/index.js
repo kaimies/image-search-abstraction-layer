@@ -29,7 +29,9 @@ app.get('/api/imagesearch/:searchTerm', (req, res) => {
 });
 
 app.get('/api/latest/imagesearch', (req, res) => {
-  //
+  db.getLatestSearchTerms()
+    .then(result => res.json(result))
+    .catch(err => res.end(err));
 });
 
 const port = process.env.PORT || 8080;
