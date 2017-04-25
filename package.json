@@ -1,0 +1,44 @@
+{
+  "name": "image-search-abstraction-layer",
+  "version": "0.1.0",
+  "main": "src/index.js",
+  "author": "Kai Mies <develop@regnavi.de>",
+  "license": "MIT",
+  "description": "Image search abstraction layer",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kaimies/image-search-abstraction-layer.git"
+  },
+  "scripts": {
+    "start": "nodemon src/index.js --exec babel-node",
+    "build": "babel src -d dist",
+    "serve": "node dist/index.js",
+    "lint": "esw src --color",
+    "lint:watch": "npm run lint -- --watch",
+    "test": "jest",
+    "version:major": "npm version major",
+    "version:minor": "npm version minor",
+    "version:patch": "npm version patch",
+    "push:origin": "git push --tags origin HEAD:master"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-jest": "^19.0.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-latest": "^6.24.0",
+    "babel-register": "^6.24.0",
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-watch": "^3.0.1",
+    "jest": "^19.0.2",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.2",
+    "nsp": "^2.6.3"
+  },
+  "dependencies": {
+    "express": "^4.15.2",
+    "mongodb": "^2.2.26"
+  }
+}
