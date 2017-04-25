@@ -21,7 +21,7 @@ export default class BingImageSearchApi {
   }
 
   search(term, options = { count: 10, offset: 0 }) {
-    return axios.get(this.getUrl(term, options), {
+    return axios.get(this.constructor.getUrl(term, options), {
       headers: { 'Ocp-Apim-Subscription-Key': this.apiKey },
     });
   }
