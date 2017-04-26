@@ -8,15 +8,19 @@ export default class DB {
   }
 
   addSearchTerm(searchTerm) {
-    MongoClient.connect(this.dbUrl, (err, db) => {
-      if (err) {
-        throw err;
-      }
-
-      db.collection('searchTerms').insert(searchTerm, (err, result) => {
+    return new Promise((resolve, reject) => {
+      MongoClient.connect(this.dbUrl, (err, db) => {
         if (err) {
-          throw err;
+          return reject(err);
         }
+
+        db.collection('searchTerms').insert({ searchTerm }, (err, result) => {
+          if (err) {
+            return reject(err);
+          }
+
+          return resolve(result);
+        });
       });
     });
   }
