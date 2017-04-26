@@ -33,7 +33,10 @@ app.get('/api/imagesearch/:searchTerm', (req, res) => {
 
 app.get('/api/latest/imagesearch', (req, res) => {
   db.getLatestSearchTerms()
-    .then(result => res.json(result))
+    .then((results) => {
+      const searchTerms = results.map(result => result.searchTerm);
+      res.json(searchTerms);
+    })
     .catch(err => res.end(err));
 });
 
