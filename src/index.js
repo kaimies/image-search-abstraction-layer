@@ -6,9 +6,6 @@ const app = express();
 const searchApi = new ImageSearchApi(process.env.BING_API_KEY || '');
 const db = new DB(process.env.MONGODB_URL || 'mongodb://localhost:27017/imagesearch');
 
-console.log(process.env.MONGODB_URL);
-console.log(process.env.BING_API_KEY);
-
 const bingResponseToApiResponse = (value) => {
   return {
     alt: value.name,
